@@ -19,3 +19,7 @@ input {
 #numbers-list{
 	word-spacing: 130px;
 }
+
+#message{
+	padding: 20px;
+}

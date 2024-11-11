@@ -9,8 +9,7 @@ const message = document.getElementById("message")
 const instructions = document.getElementById("instructions")
 const form = document.getElementById('answers-form');
 const button = document.querySelector("button.ntn");
-const numeriUtente = document.querySelector('.form-control');
-const numeriGiusti = [];
+const numeriUtente = document.querySelector('.form-control');  
 
 // conto alla rovescia
 let secondi = 6;
@@ -37,14 +36,33 @@ console.log(numeriRandom);
 numbersList.innerHTML = numeriRandom.join(" ");
 
 
+
 // non ricarica la pagina + commento stampato 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
+    // Crea un array per memorizzare i numeri giusti
+    const numeriGiusti = [];
+
+    //numeri inseriti dall'utente
+    const inputs = document.querySelectorAll('#input-group input');
+    const numeriUtente = [];
+    for (let i = 0; i < inputs.length; i++) {
+        numeriUtente.push(parseInt(inputs[i].value));
+    }  
+
+    // confront numeri 
     for (let i = 0; i < numeriUtente.length; i++) {
         if (numeriRandom.includes(numeriUtente[i])) {
-            numeriGiusti.push(numeriUtente[i]); 
-            message.innerHTML = numeriGiusti;
-            console.log(numeriUtente);
+            numeriGiusti.push(numeriUtente[i]);
         }
     }
+
+    // Stampa i numeri giusti nel messaggio
+    if (numeriGiusti.length > 0) {
+        message.innerHTML = `Hai indovinato i numeri: ${numeriGiusti.join(", ")}`;
+    } else {
+        message.innerHTML = "Non hai indovinato nessun numero.";
+    }
+
+    console.log("Numeri inseriti:", numeriUtente);
 });
