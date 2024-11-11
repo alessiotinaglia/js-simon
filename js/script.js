@@ -9,7 +9,7 @@ const message = document.getElementById("message")
 const instructions = document.getElementById("instructions")
 const form = document.getElementById('answers-form');
 const button = document.querySelector("button.ntn");
-const numeriUtente = document.querySelector('.form-control');  
+const numeriUtente = document.querySelector('.form-control');
 
 // conto alla rovescia
 let secondi = 6;
@@ -37,7 +37,7 @@ numbersList.innerHTML = numeriRandom.join(" ");
 
 
 
-// non ricarica la pagina + commento stampato 
+// non ricarica la pagina + commento stampato
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     // Crea un array per memorizzare i numeri giusti
@@ -48,7 +48,7 @@ form.addEventListener("submit", function (event) {
     const numeriUtente = [];
     for (let i = 0; i < inputs.length; i++) {
         numeriUtente.push(parseInt(inputs[i].value));
-    }  
+    }
 
     // confront numeri 
     for (let i = 0; i < numeriUtente.length; i++) {
@@ -64,5 +64,11 @@ form.addEventListener("submit", function (event) {
         message.innerHTML = "Non hai indovinato nessun numero.";
     }
 
-    console.log("Numeri inseriti:", numeriUtente);
+    console.log("Numeri inseriti :", numeriUtente);
+
+    // ricarica la pagina dopo 5 secondi 
+    setTimeout(function () {
+        location.reload();
+    }, 7000);
 });
+
