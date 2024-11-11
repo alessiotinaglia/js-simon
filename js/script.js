@@ -44,8 +44,8 @@ form.addEventListener("submit", function (event) {
     const numeriGiusti = [];
 
     //numeri inseriti dall'utente
-    const inputs = document.querySelectorAll('#input-group input');
     const numeriUtente = [];
+    const inputs = document.querySelectorAll('#input-group input');
     for (let i = 0; i < inputs.length; i++) {
         numeriUtente.push(parseInt(inputs[i].value));
     }
@@ -64,7 +64,7 @@ form.addEventListener("submit", function (event) {
         message.innerHTML = "Non hai indovinato nessun numero.";
     }
 
-    console.log("Numeri inseriti :", numeriUtente);
+    console.log("Numeri inseriti:", numeriUtente);
 
     // ricarica la pagina dopo 5 secondi 
     setTimeout(function () {
